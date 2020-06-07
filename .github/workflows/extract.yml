@@ -37,6 +37,9 @@ jobs:
       run: ./gradlew build 
 
     - name: Build with Gradle
+      run: ./gradlew jar
+
+    - name: Build with Gradle
       run: ./gradlew fatJar
     
     - name: ls
