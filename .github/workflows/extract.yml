@@ -53,6 +53,7 @@ jobs:
         repository: ${{github.event.issue.title}}
         path: ./my-tools
         fetch-depth: 0
+        ref: tmp
     
     - name: fetch  
       run: git fetch
