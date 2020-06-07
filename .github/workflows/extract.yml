@@ -61,7 +61,7 @@ jobs:
       working-directory: ./my-tools
 
     - name: Checkout tools repo
-      run: while read in; git checkout "$in"; done < ${{github.event.issue.body}}
+      run: sh -c 'while read in; git checkout "$in"; done < ${{github.event.issue.body}}'
       working-directory: ./my-tools
 
     - name: execute
