@@ -48,24 +48,27 @@ jobs:
 
 
     - name: Checkout tools repo
+      continue-on-error: true
       uses: actions/checkout@v2
       with:
         repository: ${{github.event.issue.title}}
         path: ./my-tools
         fetch-depth: 0
-        ref: tmp
     
     - name: fetch  
+      continue-on-error: true
       run: git fetch
       working-directory: ./my-tools
 
     - name: Checkout tools repo
+      continue-on-error: true
       run: |
         TAG = echo  ${{github.event.issue.body}} | xargs 
         git checkout $TAG
       working-directory: ./my-tools
 
     - name: Close Issue
+      continue-on-error: true
       uses: peter-evans/close-issue@v1
       with:
         comment: |
