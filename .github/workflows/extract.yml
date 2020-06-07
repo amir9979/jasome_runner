@@ -19,6 +19,10 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    
+    - name: echo name
+    - run: echo working on repo ${{github.event.issue.title}} at tag ${{github.event.issue.body}}
+
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
@@ -39,6 +43,23 @@ jobs:
         name: jar
         # A file, directory or wildcard pattern that describes what to upload
         path: ./build/libs/jasome.jar
+
+
+    - name: Grant execute permission for jasome
+      run: chmod +x ./jasome
+
+
+    - name: Checkout tools repo
+      uses: actions/checkout@v2
+      with:
+        repository: ${{github.event.issue.title}}
+        path: ./my-tools
+        fetch-depth: 0
+        ref: fop-2_1
+        
+    - name: Checkout tools repo
+      run: git checkout ${{github.event.issue.body}}
+      working-directory: ./my-tools
 
     - name: Close Issue
       uses: peter-evans/close-issue@v1
