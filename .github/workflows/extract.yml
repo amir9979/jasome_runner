@@ -25,6 +25,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: 2.7
+
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
@@ -61,7 +66,7 @@ jobs:
       working-directory: ./my-tools
 
     - name: Checkout tools repo
-      run: sh -c 'while read in; git checkout "$in"; done < ${{github.event.issue.body}}'
+      run: python -c "import sys,os;os.system(\"git checkout \" + sys.argv[1].strip())" ${{github.event.issue.body}}'
       working-directory: ./my-tools
 
     - name: execute
