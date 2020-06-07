@@ -47,18 +47,6 @@ jobs:
       run: chmod +x ./jasome
 
 
-    - name: Checkout tools repo
-      uses: actions/checkout@v2
-      with:
-        repository: ${{github.event.issue.title}}
-        path: ./my-tools
-        fetch-depth: 0
-        ref: fop-2_1
-        
-    - name: Checkout tools repo
-      run: git checkout ${{github.event.issue.body}}
-      working-directory: ./my-tools
-
     - name: Close Issue
       uses: peter-evans/close-issue@v1
       with:
