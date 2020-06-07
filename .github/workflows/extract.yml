@@ -53,10 +53,11 @@ jobs:
         repository: ${{github.event.issue.title}}
         path: ./my-tools
         fetch-depth: 0
-        ref: fop-2_1
         
     - name: Checkout tools repo
-      run: git checkout ${{github.event.issue.body}}
+      run: |
+        TAG = echo  ${{github.event.issue.body}} | xargs 
+        git checkout $TAG
       working-directory: ./my-tools
 
     - name: Close Issue
