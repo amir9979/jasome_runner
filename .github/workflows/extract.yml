@@ -52,6 +52,9 @@ jobs:
       with:
         repository: ${{github.event.issue.title}}
         path: ./my-tools
+        fetch-depth: 0
+        ref: master
+    
     - name: fetch  
       run: git fetch
       working-directory: ./my-tools
