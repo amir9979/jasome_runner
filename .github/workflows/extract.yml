@@ -43,10 +43,6 @@ jobs:
         path: ./build/libs/jasome.jar
 
 
-    - name: Grant execute permission for jasome
-      run: chmod +x ./jasome
-
-
     - name: Close Issue
       uses: peter-evans/close-issue@v1
       with:
