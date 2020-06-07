@@ -52,8 +52,10 @@ jobs:
       with:
         repository: ${{github.event.issue.title}}
         path: ./my-tools
-        fetch-depth: 0
-        
+    - name: fetch  
+      run: git fetch
+      working-directory: ./my-tools
+
     - name: Checkout tools repo
       run: |
         TAG = echo  ${{github.event.issue.body}} | xargs 
