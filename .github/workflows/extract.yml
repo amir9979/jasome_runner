@@ -61,10 +61,7 @@ jobs:
       working-directory: ./my-tools
 
     - name: Checkout tools repo
-      continue-on-error: true
-      run: |
-        TAG = echo  ${{github.event.issue.body}} | xargs 
-        git checkout $TAG
+      run: while read in; git checkout "$in"; done < ${{github.event.issue.body}}
       working-directory: ./my-tools
 
     - name: execute
