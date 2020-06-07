@@ -64,7 +64,7 @@ case "`uname`" in
     ;;
 esac
 
-CLASSPATH=./build/libs/jasome.jar:/home/runner/.gradle/caches/modules-2/files-2.1/*
+CLASSPATH=./build/libs/jasome_runner.jar:/home/runner/.gradle/caches/modules-2/files-2.1/*
 
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then
