@@ -81,7 +81,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         # Artifact name
-        name: ${{github.event.issue.title}}-${{github.event.issue.number}}.xml
+        name: ${{github.event.issue.number}}.xml
         # A file, directory or wildcard pattern that describes what to upload
         path: output.xml
 
@@ -91,7 +91,7 @@ jobs:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: output.xml
         asset_name: ${{github.event.issue.number}}.xml
-        tag: ${{github.event.issue.title}}-${{github.event.issue.number}}
+        tag: ${{github.event.issue.number}}
 
 
     - name: Close Issue
