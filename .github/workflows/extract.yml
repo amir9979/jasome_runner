@@ -109,5 +109,5 @@ jobs:
       with:
         comment: |
           The issue you have reported seems to be resolved now.
-          The new projects data can be found at releases
+          The extracted data can be found at https://github.com/amir9979/jasome_runner/releases by number  ${{github.event.issue.number}}.
 
