@@ -95,6 +95,13 @@ jobs:
         asset_name: ${{github.event.issue.number}}.xml
         tag: ${{github.event.issue.number}}
 
+    - name: Add closed issue comment
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        issue-number: ${{ github.event.issue.number }}
+        body: The extracted data can be found at https://github.com/amir9979/jasome_runner/releases by number  ${{github.event.issue.number}}.
+
 
     - name: Close Issue
       continue-on-error: true
