@@ -102,6 +102,9 @@ public abstract class Scanner<T> {
         for (Pair<String, Map<String, String>> sourceFile : sourceCode) {
             String sourceCodeContent = sourceFile.getLeft();
             Map<String, String> attributes = sourceFile.getRight();
+            String file = attributes.get("sourceFile");
+            System.out.println("Try to parse code from file " + file);
+                
 
             try {
                 CompilationUnit cu = parser.parse(sourceCodeContent).getResult().get();
