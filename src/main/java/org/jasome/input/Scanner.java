@@ -178,10 +178,9 @@ public abstract class Scanner<T> {
                 for (ClassOrInterfaceDeclaration clazz : classes) {
                     packages.get(packageName).add(Pair.of(clazz, attributes));
                 }
-            } catch (ParseProblemException e) {
+            } catch (Exception e) {
                 String file = attributes.get("sourceFile");
                 logger.warn("Unable to parse code from file %s, ignoring\n", file);
-                logger.warn(e.getProblems().toString());
             }
         }
 
