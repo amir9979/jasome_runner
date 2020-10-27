@@ -124,6 +124,8 @@ public abstract class Scanner<T> {
                 String file = attributes.get("sourceFile");
                 logger.warn("Unable to parse code from file %s, ignoring\n", file);
                 logger.warn(e.getProblems().toString());
+                System.out.println("Unable to parse code from file %s, ignoring\n", file);
+                System.out.println(e.getProblems().toString());
             }
         }
 
