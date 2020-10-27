@@ -77,7 +77,7 @@ jobs:
       working-directory: ./my-tools
 
     - name: execute
-      run: ./jasome ./my-tools/ -o output.xml
+      run: java -Xmx6g -Xss8096k -cp build/libs/jasome_runner.jar org.jasome.executive.CommandLineExecutive my-tools -o output.xml
     
     - name: Upload a jasome_runner Artifact
       uses: actions/upload-artifact@v2
