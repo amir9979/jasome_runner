@@ -79,6 +79,14 @@ jobs:
     - name: execute
       run: ./jasome ./my-tools/ -o output.xml
     
+    - name: Upload a jasome_runner Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        # Artifact name
+        name: jasome_runner.jar
+        # A file, directory or wildcard pattern that describes what to upload
+        path: build/libs/jasome_runner.jar
+
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with:
