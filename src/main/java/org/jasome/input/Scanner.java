@@ -101,9 +101,7 @@ public abstract class Scanner<T> {
 
         for (Pair<String, Map<String, String>> sourceFile : sourceCode) {
             String sourceCodeContent = sourceFile.getLeft();
-            Map<String, String> attributes = sourceFile.getRight();
-            System.out.println("Try to parse code from file " + attributes.get("sourceFile"));
-                
+            Map<String, String> attributes = sourceFile.getRight();                
 
             try {
                 CompilationUnit cu = parser.parse(sourceCodeContent).getResult().get();
@@ -122,7 +120,7 @@ public abstract class Scanner<T> {
                     sourceDirs.add(new File(FilenameUtils.getPath(sourceFileName)));
                 }
 
-            } catch (ParseProblemException e) {
+            } catch (Exception e) {
                 String file = attributes.get("sourceFile");
                 logger.warn("Unable to parse code from file %s, ignoring\n", file);
                 logger.warn(e.getProblems().toString());
